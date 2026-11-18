@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-opencode-quota",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Show the remaining OpenCode Go allowance of the API key configured in DSH.",
   "type": "module",
