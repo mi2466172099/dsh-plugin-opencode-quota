@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode 额度",
+    "description": "在输入框工具栏旁显示 DSH 中所配置 OpenCode API 密钥的剩余额度，以及每个额度窗口的重置时间。"
+  }
+}

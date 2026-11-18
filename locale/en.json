@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode allowance",
+    "description": "Shows the remaining OpenCode Go allowance of the API key configured in DSH, and the reset time of each window, beside the composer."
+  }
+}
