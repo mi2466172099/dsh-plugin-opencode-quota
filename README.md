@@ -1,10 +1,15 @@
 # dsh-plugin-opencode-quota
 
+<sub>中文 | <a href="README.en.md">English</a></sub>
+
 在 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）的输入框工具栏显示 **OpenCode Go** 的剩余额度。
 
 <p align="center">
   <img src="docs/styles.png" alt="输入框工具行里的额度圆环" width="820">
 </p>
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![DSH](https://img.shields.io/badge/DSH-0.2.x-5b5bd6)
 
 ## 安装
 
@@ -14,7 +19,22 @@ DSH 的插件以本地 bundle 形式安装：
 2. 打开 DSH → **插件** → **添加插件**，选择这个目录；
 3. 回到聊天页，输入框工具行（「工作区内修改 ⌄」之后）会出现额度胶囊。
 
-若想装给整个 profile 而不是单个会话，也可以在 `cordis.patch.yml` 里以自己的 `insert` 行引用本包（行 id 用 `opencode-quota`）。
+### 装到整个 profile（可选）
+
+「添加插件」只会把 bundle 挂到当前 profile 的 `dsh.profile.bundles` 里。若想让它对所有会话生效、并且能手动管理这一行，就在 profile 的 `cordis.patch.yml`（不是本包的 `cordis.patch.yml`）里加一条 `insert`，**行 id 必须用 `opencode-quota`**：
+
+```yaml
+- insert:
+    - id: opencode-quota
+      name: 'dsh-plugin-opencode-quota'
+      config: {}
+```
+
+- `id: opencode-quota` 是这个插件在你 profile 树里的唯一行标识；改别的 id 也能跑，但会和官方示例、其它文档对不上。
+- `name` 必须是包名 `dsh-plugin-opencode-quota`（即以本目录为包根解析）。
+- 本包自带的 `cordis.patch.yml` 就是上面这段内容，**安装器会自动用它在 bundle 层插入**，所以走「添加插件」时不必自己写。
+
+反过来，想停用这一行而不卸载，把该行改成 `disabled: true` 即可。
 
 ## 要求
 

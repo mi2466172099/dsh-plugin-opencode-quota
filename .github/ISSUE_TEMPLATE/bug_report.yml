@@ -1,0 +1,45 @@
+name: Bug report
+description: Something in this plugin does not work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please keep logs free of API keys and session contents.
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DSH version
+      description: From DSH → Settings → General → Current version.
+      placeholder: 0.2.2-rc.2
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Windows, Linux]
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, what you saw, and the steps that reproduce it.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or logs
+      description: Paste screenshots or relevant log lines with secrets removed.
+      render: text
+    validations:
+      required: false
